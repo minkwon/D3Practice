@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/d3.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        d3.select("body").append("p").text("New paragraph!");
+
+        var data = {
+            resource_id: '2bbef99e-9974-49b9-a316-57402b00609c', // the resource id
+            limit: 5, // get 5 results
+            q: '_id = 1'
+        };
+
+        $.ajax({
+            url: 'https://data.qld.gov.au/api/action/datastore_search',
+            data: data,
+            dataType: 'jsonp',
+            success: function(data) {
+                alert('Total results found: ' + data.result.total)
+            }
+        });
+
+
+    </script>
+    <p>This is new</p>
+</body>
+</html>
+
+
+var data = {
+resource_id: '2bbef99e-9974-49b9-a316-57402b00609c', // the resource id
+limit: 5, // get 5 results
+q: 'Gold Coast' // query for 'jones'
+};
+
+
+$.ajax({
+url: 'https://data.qld.gov.au/api/action/datastore_search',
+data: data,
+dataType: 'jsonp',
+success: function(data) {
+alert('Total results found: ' + data.result.total)
+}
+});
